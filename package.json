@@ -7,7 +7,7 @@
   "style": "lib/mapbox-gl-geocoder.css",
   "scripts": {
     "start": "budo debug/index.js --live -- -t brfs ",
-    "prepublish": "NODE_ENV=production && mkdir -p dist && browserify --standalone MapboxGeocoder lib/index.js | uglifyjs -c -m > dist/mapbox-gl-geocoder.min.js && cp lib/mapbox-gl-geocoder.css dist/",
+    "prepublish": "mkdir -p dist && browserify --standalone MapboxGeocoder lib/index.js | uglifyjs -c -m > dist/mapbox-gl-geocoder.min.js && cp lib/mapbox-gl-geocoder.css dist/",
     "test": "browserify -t envify test/index.js test/events.test.js | smokestack -b firefox | tap-status | tap-color",
     "docs": "documentation build lib/index.js --format=md > API.md",
     "pretest": "npm run lint",
@@ -22,9 +22,6 @@
     "type": "git",
     "url": "git+ssh://git@github.com/mapbox/mapbox-gl-geocoder.git"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@bar3200"
-  }
   "engines": {
     "node": ">=6"
   },
